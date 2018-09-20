@@ -2,28 +2,71 @@
 
 import React, { Component } from 'react'
 
+/* ============== SetState assíncrono =============== */
 class App extends Component {
-      constructor() {
-            super();
+      constructor () {
+            super ();
             this.state = {
-                  value: '2'
+                  checked: false,
+                  showContent: false
             }
       }
-      
       render () {
             return (
-                  <form>
-                        
-                  </form>
+                  <div>
+                        <label>
+                              <input
+                                    type='checkbox'
+                                    checked={this.state.checked}
+                                    onChange={() => {
+                                          this.setState({
+                                                checked: !this.state.checked
+                                          }, () => { //callback
+                                                this.setState({
+                                                      showContent: this.state.checked
+                                                })
+                                          })
+                                    }}
+                              />Mostrar conteúdo
+                        </label>
+                        {this.state.showContent && <div>Olha eu aqui</div>}
+                  </div>
             )
       }
 }
 
 export default App
 
+/* ================= Forms =================== */
+// class App extends Component {
+//       constructor () {
+//             super ();
+//             this.state = {
+//                   value: '2'
+//             }
+//       }
+//       render () {
+//             return (
+//                   <form 
+//                         onSubmit={(e) => {
+//                               e.preventDefault()
+//                               console.log('event', e)
+//                         }}
+//                         onChange={(e) => {
+//                               console.log('name', e.target.name)
+//                               console.log('value', e.target.value)
+//                         }}
+//                   >
+//                         <input type='name' name='name' />
+//                         <input type='email' name='email' />
+//                         <button type='submit'>Enviar</button>
+//                   </form>
+//             )
+//       }
+// }
+/* ================= ##### =================== */
 
-
-/*============== select e option ================*/
+/* ============== select e option ================ */
 // class App extends Component {
 //       constructor() {
 //             super();
@@ -31,7 +74,6 @@ export default App
 //                   value: '2'
 //             }
 //       }
-      
 //       render () {
 //             return (
 //                   <form>
@@ -48,10 +90,9 @@ export default App
 //             )
 //       }
 // }
-/*================= ##### ===================*/
+/* ================= ##### =================== */
 
-/*============== Checkbox e radio ================*/
-// import React, { Component } from 'react'
+/* ============== Checkbox e radio ================ */
 // class App extends Component {
 //       constructor() {
 //             super();
@@ -59,7 +100,7 @@ export default App
 //                   value: 'Valor inicial',
 //                   checked: false
 //             }
-//       }      
+//       }
 //       render () {
 //             return (
 //                   <div>
@@ -87,15 +128,9 @@ export default App
 //             )
 //       }
 // }
-// export default App
-/*================= ##### ===================*/
+/* ================= ##### =================== */
 
-/*================ Lifecycle ==================*/
-// import React, { Component } from 'react'
-// import Button from './button'
-// import Square from './square'
-// import Timer from './timer'
-
+/* ================ Lifecycle ================== */
 // class App extends Component {
 //       constructor() {
 //             super();
@@ -103,7 +138,7 @@ export default App
 //                   color: 'green',
 //                   showTimer: true
 //             }
-//       }      
+//       }
 //       render () {
 //             return (
 //                   <div>
@@ -112,7 +147,6 @@ export default App
 //                               this.setState({ showTimer: !this.state.showTimer })
 //                         }}>Show / Hide timer</button>
 //                         <Square color={this.state.color} />
-
 //                         {['red', 'green', 'blue'].map((color) => (
 //                               <Button
 //                                     key={color}
@@ -124,13 +158,9 @@ export default App
 //             )
 //       }
 // }
+/* ================= ##### =================== */
 
-// export default App
-/*================= ##### ===================*/
-
-/*================= State ===================*/
-//import React, { Component } from 'react'
-
+/* ================= State =================== */
 // class App extends Component {
 //       constructor() {
 //             super();
@@ -138,7 +168,6 @@ export default App
 //                   text: 'Gabriel'
 //             }
 //       }
-      
 //       render () {
 //             return (
 //                   <div className="container" onClick={() => this.setState({
@@ -149,15 +178,9 @@ export default App
 //             )
 //       }
 // }
+/* ================= ##### =================== */
 
-// export default App
-/*================= ##### ===================*/
-
-/*================= Props ===================*/
-// import React, { Component } from 'react'
-// import LikeButton from './like-button'
-// import SearchButton from './search-button'
-
+/* ================= Props =================== */
 // class App extends Component {
 //       render () {
 //             return (
@@ -168,6 +191,4 @@ export default App
 //             )
 //       }
 // }
-
-// export default App
-/*================= ##### ===================*/
+/* ================= ##### =================== */
