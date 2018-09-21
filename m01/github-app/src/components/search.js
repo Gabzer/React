@@ -2,12 +2,18 @@
 
 import React from 'react'
 
-const Search = () => (
+const Search = ({ handleSearch }) => (
       <div className='search'>
             <input
                   type='search'
-                  placeholder='Digite o nome do usuário' />
+                  placeholder='Digite o nome do usuário'
+                  onKeyUp={handleSearch} //observa as teclas apertadas
+            />
       </div>
 )
+
+Search.propTypes = {
+      handleSearch: React.PropTypes.func.isRequired
+}
 
 export default Search
